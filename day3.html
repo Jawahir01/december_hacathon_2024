@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!--Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap" rel="stylesheet">
+    <!--favicon-->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/favicon_io/site.webmanifest">
+    <title>Day 3</title>
+    <style>
+    a.homebutton {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: green;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+}
+
+a.homebutton:hover {
+    background-color: crimson;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+        body {
+            background: #191970;
+            background-image: url("assets/image/elves2.jpeg");
+           background-repeat: no-repeat;
+           background-position: center center;
+           background-size: cover;
+           background-attachment: fixed;
+            margin: 0;
+            overflow: hidden;
+font-family: "Merienda", cursive;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+        }
+        .snowflake {
+            position: absolute;
+            top: 0;
+            border-radius: 50%;
+            background: whitesmoke;
+            animation: snowEffectV ease-in infinite, snowEffectH ease-in-out infinite;
+        }
+        @keyframes snowEffectV {
+            0% {
+                top: -40px;
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                top: 101vh;
+                opacity: 0;
+            }
+        }
+@keyframes snowEffectH {
+            0% {
+                transform: translateX(0px);
+            }
+
+            50% {
+                transform: translateX(-20px);
+            }
+
+            100% {
+                transform: translateX(20px);
+            }
+        }
+        img {
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+   <a href="index.html" class="homebutton">Home</a>
+    <audio autoplay>
+        <source src="assets/music/christmas-music-jingle-bell-joy-251737.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <script>
+        $(document).ready(function () {
+            // Snowflake generation logic
+            for (let i = 0; i < 100; i++) {
+                let size = Math.floor(Math.random() * 10) + 5 + 'px'; // Random size between 5px and 15px
+                let leftPosition = Math.random() * 100 + '%'; // Random left position across the screen
+                let animationDuration = Math.random() * 5 + 5 + 's'; // Random duration between 5s and 10s
+
+                let snowflake = $('<div/>').addClass('snowflake').css({
+                    width: size,
+                    height: size,
+                    left: leftPosition,
+                    animationDuration: animationDuration, // Vary the falling speed
+                });
+
+                $('body').append(snowflake);
+            }
+
+           
+        });
+        
+        document.addEventListener('click', function() {
+          const audio = document.querySelector('audio');
+        audio.play();
+    });
+    </script>
+</body>
+</html>
